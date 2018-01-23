@@ -62,6 +62,14 @@ function mel_init() {
 	);
 
 	add_settings_field(
+		'mel_search',
+		'Search Pages',
+		'mel_search_cb',
+		'multiple-excerpt-lengths',
+		'mel_section'
+	);
+
+	add_settings_field(
 		'mel_tax',
 		'Custom Taxinomy Archives',
 		'mel_tax_cb',
@@ -105,6 +113,12 @@ function mel_author_cb() {
 	$options = get_option( 'mel_settings' );
 	if( !isset( $options['on_author'] ) ) $options['on_author'] = '';
 	echo '<input type="number" name="mel_settings[on_author]" value="' . $options['on_author'] . '" placeholder="55" min="1" max="999">';
+}
+
+function mel_search_cb() {
+	$options = get_option( 'mel_settings' );
+	if( !isset( $options['on_search'] ) ) $options['on_search'] = '';
+	echo '<input type="number" name="mel_settings[on_search]" value="' . $options['on_search'] . '" placeholder="55" min="1" max="999">';
 }
 
 function mel_tax_cb() {
@@ -157,6 +171,7 @@ function multiple_excerpt_lengths($length) {
 	$is_cat = !empty( $options['on_cat'] ) ? $options['on_cat'] : '55';
 	$is_tag = !empty( $options['on_tag'] ) ? $options['on_tag'] : '55';
 	$is_author = !empty( $options['on_author'] ) ? $options['on_author'] : '55';
+	$is_search = !empty( $options['on_search'] ) ? $options['on_search'] : '55';
 	$is_tax = !empty( $options['on_tax'] ) ? $options['on_tax'] : '55';
 
 	if(is_front_page()) {
@@ -173,6 +188,9 @@ function multiple_excerpt_lengths($length) {
 	}
 	elseif(is_author()) {
 		return '' . $is_author . '';
+	}
+	elseif(is_search()) {
+		return '' . $is_search . '';
 	}
 	elseif(is_tax()) {
 		return '' . $is_tax . '';

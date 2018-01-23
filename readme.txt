@@ -15,9 +15,9 @@ Allows you to change the lengths of excerpts that are present at various pages/t
 
 Do you have excerpts on multiple pages? Do you want to have them at different lengths?
 
-With the Multiple Excerpt Lengths plugin, you can now control the length (in words) of excerpts present at various different templates throughout your WordPress site. 
+With the Multiple Excerpt Lengths plugin, you can now control the length (in words) of excerpts present at various different templates throughout your WordPress site.
 
-By default, **WordPress sets the length of excerpts at 55 words**. It is fairly simple to change this length – it only requires you to add a short piece of code to your functions.php file. However, once you add that code, it changes the length of **ALL** the excerpts present on your site, and you may not want that. 
+By default, **WordPress sets the length of excerpts at 55 words**. It is fairly simple to change this length – it only requires you to add a short piece of code to your functions.php file. However, once you add that code, it changes the length of **ALL** the excerpts present on your site, and you may not want that.
 
 For example, you might want to shorten the length of the excerpts on your Front Page where you have 3 recent blog posts displayed horizontally in columns but you might not want to change the length of the excerpts on your Blog Page (which may be displaying 10 of your recent posts).
 
@@ -51,10 +51,16 @@ Visit the [Plugin's Homepage](https://raajtram.com/plugins/mel "Multiple Excerpt
 
 == Changelog ==
 
+= 1.1 =
+*Added support for Search pages
+
 = 1.0 =
 *Plugin Released
 
 == Upgrade Notice ==
+
+= 1.1 =
+This version adds support for Search pages
 
 = 1.0 =
 Plugin Released
