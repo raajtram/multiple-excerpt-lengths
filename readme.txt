@@ -2,14 +2,13 @@
 
 Contributors: raajtram
 Donate link: http://raajtram.com/
-Tags: excerpts, wp_loop, wp_query
+Tags: excerpt, excerpts, wp_loop, wp_query
 Requires at least: 3.0.1
-Tested up to: 4.4.1
-Stable tag: 4.4.1
+Tested up to: 5.2.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.txt
 
-Allows you to change the lengths of excerpts that are present at various pages/templates throughout your site.
+Allows you to change the lengths of WordPress excerpts (the_excerpt) that are present at various pages/templates throughout your site.
 
 == Description ==
 

@@ -2,14 +2,22 @@
 
 /*
 Plugin Name: Multiple Excerpt Lengths
-Plugin URI: https://raajtram.com/plugins/mel
-Description: Allows you to change the lengths of excerpts that are present at variours pages/templates throughout your site.
-Version: 1.0
+Plugin URI: https://raajtram.com/plugins/mel/
+Description: Allows you to change the lengths of WordPress excerpts (the_excerpt) that are present at various pages/templates throughout your site.
+Version: 1.2
 Author: Raaj Trambadia
 Author URI: https://raajtram.com/
 */
 
 defined( 'ABSPATH' ) or die( 'Plugin file cannot be accessed directly.' );
+
+/* Add the "Settings" Link to the /plugins Page */
+add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'mel_action_links' );
+
+function mel_action_links( $links ) {
+   $links[] = '<a href="'. esc_url( get_admin_url(null, 'options-general.php?page=multiple-excerpt-lengths') ) .'">Settings</a>';
+   return $links;
+}
 
 function mel_init() {
 	register_setting( 'mel_settings_group', 'mel_settings' );
@@ -71,7 +79,7 @@ function mel_init() {
 
 	add_settings_field(
 		'mel_tax',
-		'Custom Taxinomy Archives',
+		'Custom Taxonomy Archives',
 		'mel_tax_cb',
 		'multiple-excerpt-lengths',
 		'mel_section'
@@ -137,6 +145,16 @@ function mel_options() {
 	<div class="wrap mel_options">
 		<h2>Multiple Excerpt Lengths - Settings </h2>
 		<p>Listed below are some commonly used pages and templates. If that page/template contains excerpts (inside wp_loop or wp_query), the length of the excerpt will be trimmed down to the number you specify. For e.g., if you specify "20" as the length for the "Front Page", all the excerpts present on that particular page (whether they are inside a wp_loop or a wp_query), will be trimmed down to 20 words.</p>
+		<p>
+        Plugin developed and maintained by <a href="https://raajtram.com/?utm_source=mel-wp-plugin&utm_medium=settings-page">@raajtram</a>. If this plugin helped you, you can show your appreciation by <a href="https://wordpress.org/support/plugin/multiple-excerpt-lengths/reviews/#new-post" target="_blank" rel="noopener nofollow">leaving a review</a>.
+    </p>
+    <p>
+
+
+    </p>
+        View the <a href="https://raajtram.com/plugins/mel/?utm_source=mel-wp-plugin&utm_medium=settings-page" target="_blank">plugin documentation</a> for help.
+    <p>
+    </p>
 		<form method="post" action="options.php">
 		<?php
 			settings_fields( 'mel_settings_group' );
